@@ -39,7 +39,7 @@ queries = {
 }
 
 def run_tests(label):
-    print(f"\n--- {label} ---")
+    print(f"\n{label}")
     results = []
     with engine.connect() as conn:
         for name, q in queries.items():
@@ -71,8 +71,7 @@ with engine.connect() as conn:
 
 t2 = run_tests("С ИНДЕКСАМИ")
 
-print(f"\n{'|Запрос|':<25} {'|Без|':<10} {'|С индексами|':<10} {'|Прирост|':<10}")
-print("-" * 55)
+print(f"\n{'|Запрос|':<20} {'|Без индексов|':<15} {'|С индексами|':<20} {'|Прирост|':<15}")
 for i, (name, a, b) in enumerate(zip(queries.keys(), t1, t2)):
     speed = round(a/b, 2) if b else 0
-    print(f"{name:<25} {a:<10} {b:<10} {speed}x")
+    print(f"{name:<25} {a:<15} {b:<15} {speed}x")
