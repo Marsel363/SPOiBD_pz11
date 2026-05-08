@@ -71,7 +71,7 @@ with engine.connect() as conn:
 
 t2 = run_tests("С ИНДЕКСАМИ")
 
-print(f"\n{'Запрос':<25} {'Без':<10} {'С':<10} {'Прирост':<10}")
+print(f"\n{'|Запрос|':<25} {'|Без|':<10} {'|С индексами|':<10} {'|Прирост|':<10}")
 print("-" * 55)
 for i, (name, a, b) in enumerate(zip(queries.keys(), t1, t2)):
     speed = round(a/b, 2) if b else 0
